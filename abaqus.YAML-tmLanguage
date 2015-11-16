@@ -1,0 +1,21 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Abaqus
+scopeName: text.abaqus 
+fileTypes: [inp]
+uuid: 24f1bc35-ba9c-457b-8f26-db63c6e4bc42
+
+patterns:
+- comment: Lines starting by ** are comments
+  name: comment.line.abaqus
+  match: ^\*\*.*
+
+- comment: Lines starting by * are commands
+  name: keyword.control.abaqus
+  match: \*([^\*]*)
+  captures:
+    '1': {name: entity.name.function.abaqus}
+- comment: Highlight comas
+  name: keyword.other.abaqus
+  match: \,
+...
