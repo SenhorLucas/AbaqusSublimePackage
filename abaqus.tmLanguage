@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>inp</string>
+	</array>
+	<key>name</key>
+	<string>Abaqus</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>Lines starting by ** are comments</string>
+			<key>match</key>
+			<string>^\*\*.*</string>
+			<key>name</key>
+			<string>comment.line.abaqus</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.abaqus</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Lines starting by * are commands</string>
+			<key>match</key>
+			<string>\*([^\*]*)</string>
+			<key>name</key>
+			<string>keyword.control.abaqus</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Highlight comas</string>
+			<key>match</key>
+			<string>\,</string>
+			<key>name</key>
+			<string>keyword.other.abaqus</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.abaqus</string>
+	<key>uuid</key>
+	<string>24f1bc35-ba9c-457b-8f26-db63c6e4bc42</string>
+</dict>
+</plist>
