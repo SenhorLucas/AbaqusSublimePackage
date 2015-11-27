@@ -5,6 +5,8 @@
 	<key>fileTypes</key>
 	<array>
 		<string>inp</string>
+		<string>inc</string>
+		<string>incl</string>
 	</array>
 	<key>name</key>
 	<string>Abaqus</string>
@@ -14,9 +16,25 @@
 			<key>comment</key>
 			<string>Lines starting by ** are comments</string>
 			<key>match</key>
-			<string>^\*\*.*</string>
+			<string>^\*\*.*$</string>
 			<key>name</key>
 			<string>comment.line.abaqus</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>ERROR space before comment</string>
+			<key>match</key>
+			<string>^\s+\*.*$</string>
+			<key>name</key>
+			<string>invalid.illegal.abaqus</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>ERROR space between star and keyword</string>
+			<key>match</key>
+			<string>^\*\s+.*</string>
+			<key>name</key>
+			<string>invalid.illegal.abaqus</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -28,11 +46,30 @@
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>Lines starting by * are commands</string>
+			<string>Lines starting by * are KEYWORDS</string>
 			<key>match</key>
-			<string>\*([^\*]*)</string>
+			<string>^\*([a-zA-Z0-9\-\s]+)</string>
 			<key>name</key>
 			<string>keyword.control.abaqus</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.abaqus</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.abaqus</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>KEYWORD OPTION = VALUE</string>
+			<key>match</key>
+			<string>([a-zA-Z\s]+)(=)?([\.a-zA-Z\s_-]+)?</string>
 		</dict>
 		<dict>
 			<key>comment</key>

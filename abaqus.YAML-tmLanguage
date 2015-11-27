@@ -1,20 +1,36 @@
 # [PackageDev] target_format: plist, ext: tmLanguage
+# name list: https://manual.macromates.com/en/language_grammars
+# The order matters
 ---
 name: Abaqus
 scopeName: text.abaqus 
-fileTypes: [inp]
+fileTypes: [inp, inc, incl]
 uuid: 24f1bc35-ba9c-457b-8f26-db63c6e4bc42
 
 patterns:
 - comment: Lines starting by ** are comments
   name: comment.line.abaqus
-  match: ^\*\*.*
+  match: ^\*\*.*$
 
-- comment: Lines starting by * are commands
+- comment: ERROR space before comment
+  name: invalid.illegal.abaqus
+  match: ^\s+\*.*$
+
+- comment: ERROR space between star and keyword
+  name: invalid.illegal.abaqus
+  match: ^\*\s+.*
+
+- comment: Lines starting by * are KEYWORDS
   name: keyword.control.abaqus
-  match: \*([^\*]*)
+  match: ^\*([a-zA-Z0-9\-\s]+) 
   captures:
     '1': {name: entity.name.function.abaqus}
+
+- comment: KEYWORD OPTION = VALUE
+  match: ([a-zA-Z\s]+)(=)?([\.a-zA-Z\s_-]+)?
+  captures:
+    '1': {name: storage.type.abaqus}
+    '2': {name: keyword.other.abaqus}
 - comment: Highlight comas
   name: keyword.other.abaqus
   match: \,

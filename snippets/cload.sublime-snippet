@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+*CLOAD, FILE=${1:FILENAME}
+]]></content>
+	<tabTrigger>*CLOAD</tabTrigger>
+	<scope>text.abaqus</scope>
+	<description>CLOAD Keyword</description>
+</snippet>
