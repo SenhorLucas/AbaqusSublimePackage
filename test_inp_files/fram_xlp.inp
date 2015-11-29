@@ -1,0 +1,51 @@
+*HEADING
+Two-dimensional overhead hoist frame
+SI units (kg, m, s, N)
+1-axis horizontal, 2-axis vertical
+*PREPRINT, ECHO=YES, MODEL=YES, HISTORY=YES
+**
+** Model definition
+**
+*NODE, NSET=NALL
+101, 0.,  0.,    0.
+102, 1.,  0.,    0.
+103, 2.,  0.,    0.
+104, 0.5, 0.866, 0.
+105, 1.5, 0.866, 0.
+*NSET, NSET=CENTER
+102,
+*ELEMENT, TYPE=T2D2, ELSET=FRAME
+11, 101, 102
+12, 102, 103
+13, 101, 104
+14, 102, 104
+15, 102, 105
+16, 103, 105
+17, 104, 105
+*SOLID SECTION, ELSET=FRAME, MATERIAL=STEEL
+** diameter = 5mm --> area = 1.963E-5 m^2
+1.963E-5,
+*MATERIAL, NAME=STEEL
+*ELASTIC
+200.E9, 0.3
+*DENSITY
+7800.,
+**
+** History data
+**
+*STEP
+10kN central load, suddenly applied
+*DYNAMIC, EXPLICIT
+, 0.01
+*BULK VISCOSITY
+0.06, 1.2
+*BOUNDARY
+101, ENCASTRE
+103, 2
+*CLOAD
+102, 2, -10.E3
+*OUTPUT, FIELD, VARIABLE=PRESELECT
+*OUTPUT, HISTORY, VARIABLE=PRESELECT, FREQUENCY=1
+*NODE OUTPUT, NSET=CENTER
+U,
+*END STEP
