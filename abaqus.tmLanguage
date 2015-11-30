@@ -16,23 +16,15 @@
 			<key>comment</key>
 			<string>Lines starting by ** are comments</string>
 			<key>match</key>
-			<string>^\*\*.*$</string>
+			<string>\*\*.*$</string>
 			<key>name</key>
 			<string>comment.line.abaqus</string>
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>ERROR space before comment</string>
-			<key>match</key>
-			<string>^\s+\*.*$</string>
-			<key>name</key>
-			<string>invalid.illegal.abaqus</string>
-		</dict>
-		<dict>
-			<key>comment</key>
 			<string>ERROR space between star and keyword</string>
 			<key>match</key>
-			<string>^\*\s+.*</string>
+			<string>(^ |\s)\*\s+.*</string>
 			<key>name</key>
 			<string>invalid.illegal.abaqus</string>
 		</dict>
@@ -48,7 +40,7 @@
 			<key>comment</key>
 			<string>Lines starting by * are KEYWORDS</string>
 			<key>match</key>
-			<string>^\*([a-zA-Z0-9\-\s]+)</string>
+			<string>\*([a-zA-Z0-9\-\s]+)</string>
 			<key>name</key>
 			<string>keyword.control.abaqus</string>
 		</dict>

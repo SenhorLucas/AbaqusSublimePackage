@@ -10,19 +10,15 @@ uuid: 24f1bc35-ba9c-457b-8f26-db63c6e4bc42
 patterns:
 - comment: Lines starting by ** are comments
   name: comment.line.abaqus
-  match: ^\*\*.*$
-
-- comment: ERROR space before comment
-  name: invalid.illegal.abaqus
-  match: ^\s+\*.*$
+  match: \*\*.*$
 
 - comment: ERROR space between star and keyword
   name: invalid.illegal.abaqus
-  match: ^\*\s+.*
+  match: (^ |\s)\*\s+.*
 
 - comment: Lines starting by * are KEYWORDS
   name: keyword.control.abaqus
-  match: ^\*([a-zA-Z0-9\-\s]+) 
+  match: \*([a-zA-Z0-9\-\s]+) 
   captures:
     '1': {name: entity.name.function.abaqus}
 

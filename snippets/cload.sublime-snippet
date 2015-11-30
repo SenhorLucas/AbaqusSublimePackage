@@ -1,6 +1,6 @@
 <snippet>
 	<content><![CDATA[
-*CLOAD, FILE=${1:FILENAME}
+*CLOAD, KEYWORD1=${1:VALUE1}, KEYWORD2=${2:VALUE2}
 ]]></content>
 	<tabTrigger>*CLOAD</tabTrigger>
 	<scope>text.abaqus</scope>
