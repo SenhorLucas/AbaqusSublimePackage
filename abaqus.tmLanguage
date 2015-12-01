@@ -13,67 +13,105 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>comment</key>
-			<string>Lines starting by ** are comments</string>
-			<key>match</key>
-			<string>\*\*.*$</string>
-			<key>name</key>
-			<string>comment.line.abaqus</string>
+			<key>include</key>
+			<string>#comment</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#error</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#step</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#star</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>comment</key>
+		<dict>
+			<key>match</key>
+			<string>\*\*.*</string>
+			<key>name</key>
+			<string>comment.line.double-star.abaqus</string>
+		</dict>
+		<key>error</key>
 		<dict>
 			<key>comment</key>
 			<string>ERROR space between star and keyword</string>
 			<key>match</key>
-			<string>(^ |\s)\*\s+.*</string>
+			<string>(^| \s)\*\s+.*</string>
 			<key>name</key>
 			<string>invalid.illegal.abaqus</string>
 		</dict>
+		<key>restart</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.abaqus</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Lines starting by * are KEYWORDS</string>
 			<key>match</key>
-			<string>\*([a-zA-Z0-9\-\s]+)</string>
+			<string>\*</string>
 			<key>name</key>
-			<string>keyword.control.abaqus</string>
+			<string>keyword.other.restart.abaqus</string>
 		</dict>
+		<key>star</key>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;!\*)\*(?!\*)</string>
+			<key>name</key>
+			<string>punctuation.definition.star-keyword.abaqus</string>
+		</dict>
+		<key>step</key>
 		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.abaqus</string>
+					<string>keyword.control.step.abaqus</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.abaqus</string>
+					<string>entity.name.function.abaqus</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.illegal.abaqus</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>constant.language.abaqus</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.abaqus</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>KEYWORD OPTION = VALUE</string>
 			<key>match</key>
-			<string>([a-zA-Z\s]+)(=)?([\.a-zA-Z\s_-]+)?</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>Highlight comas</string>
-			<key>match</key>
-			<string>\,</string>
+			<string>(?x)
+((?&lt;=\*)((?i)step)) (
+  (\,)(
+    (
+      ([\.a-zA-Z0-9\s_\-]+) (?=[,\n])
+    ) | 
+    (
+      ([\.a-zA-Z0-9\s_\-]+)
+      (=)
+      ([\.a-zA-Z0-9\s_\-]+) (?=[,\n])
+    )
+  )
+){,3}
+</string>
 			<key>name</key>
-			<string>keyword.other.abaqus</string>
+			<string>keyword.control.step.abaqus</string>
 		</dict>
-	</array>
+	</dict>
 	<key>scopeName</key>
-	<string>text.abaqus</string>
+	<string>source.abaqus</string>
 	<key>uuid</key>
 	<string>24f1bc35-ba9c-457b-8f26-db63c6e4bc42</string>
 </dict>
