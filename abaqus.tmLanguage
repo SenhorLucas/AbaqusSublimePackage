@@ -22,7 +22,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#step</string>
+			<string>#keyword-general</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -31,6 +31,13 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>comma</key>
+		<dict>
+			<key>match</key>
+			<string>\,</string>
+			<key>name</key>
+			<string>punctuation.separator.abaqus</string>
+		</dict>
 		<key>comment</key>
 		<dict>
 			<key>match</key>
@@ -47,71 +54,81 @@
 			<key>name</key>
 			<string>invalid.illegal.abaqus</string>
 		</dict>
-		<key>restart</key>
+		<key>key-modifier</key>
 		<dict>
 			<key>match</key>
-			<string>\*</string>
+			<string>(?&lt;=\,)([\.a-zA-Z0-9\s_\-]+)</string>
 			<key>name</key>
-			<string>keyword.other.restart.abaqus</string>
+			<string>entity.name.function.key-general.abaqus</string>
 		</dict>
-		<key>star</key>
-		<dict>
-			<key>match</key>
-			<string>(?&lt;!\*)\*(?!\*)</string>
-			<key>name</key>
-			<string>punctuation.definition.star-keyword.abaqus</string>
-		</dict>
-		<key>step</key>
+		<key>key-value-pair</key>
 		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.step.abaqus</string>
+					<string>entity.name.function.key-general.abaqus</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.function.abaqus</string>
+					<string>punctuation.definition.equal.abaqus</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>invalid.illegal.abaqus</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>constant.language.abaqus</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>storage.type.abaqus</string>
+					<string>string.unquoted.value-general.abaqus</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?x)
-((?&lt;=\*)((?i)step)) (
-  (\,)(
-    (
-      ([\.a-zA-Z0-9\s_\-]+) (?=[,\n])
-    ) | 
-    (
-      ([\.a-zA-Z0-9\s_\-]+)
-      (=)
-      ([\.a-zA-Z0-9\s_\-]+) (?=[,\n])
-    )
-  )
-){,3}
-</string>
+			<string>([\.a-zA-Z0-9\s_\-]+)(=)([\.a-zA-Z0-9 _\-]+)</string>
 			<key>name</key>
-			<string>keyword.control.step.abaqus</string>
+			<string>entity.name.section.key-value-pair.abaqus</string>
+		</dict>
+		<key>keyword-general</key>
+		<dict>
+			<key>begin</key>
+			<string>^\n*(\*)([a-zA-Z0-9\s]+)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.star-keyword.abaqus</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.step.abaqus</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\n</string>
+			<key>name</key>
+			<string>entity.name.section.keyword-line.abaqus</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#key-value-pair</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#key-modifier</string>
+				</dict>
+			</array>
+		</dict>
+		<key>star</key>
+		<dict>
+			<key>match</key>
+			<string>^\n*\*(?!\*)</string>
+			<key>name</key>
+			<string>punctuation.definition.star-keyword.abaqus</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>source.abaqus</string>
+	<string>text.abaqus</string>
 	<key>uuid</key>
 	<string>24f1bc35-ba9c-457b-8f26-db63c6e4bc42</string>
 </dict>

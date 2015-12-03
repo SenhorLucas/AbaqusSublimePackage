@@ -33,7 +33,7 @@ SI units (kg, m, s, N)
 **
 ** History data
 **
-*STEP, AMPLITUDE=RAMP, HALLELUYA, NAME=Pretension, INC=100, NLGEOM=NO
+*STEP, AM, HALLELUYA, NAME=Pretension, INC=100, NLGEOM=NO
 10kN central load, suddenly applied
 *CLOAD
 *DYNAMIC, EXPLICIT
