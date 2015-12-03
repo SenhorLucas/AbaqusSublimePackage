@@ -26,6 +26,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#keyword-no-option</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#star</string>
 		</dict>
 	</array>
@@ -41,7 +45,7 @@
 		<key>comment</key>
 		<dict>
 			<key>match</key>
-			<string>\*\*.*</string>
+			<string>^(\s)*\*\*.*\n</string>
 			<key>name</key>
 			<string>comment.line.double-star.abaqus</string>
 		</dict>
@@ -89,18 +93,13 @@
 		<key>keyword-general</key>
 		<dict>
 			<key>begin</key>
-			<string>^\n*(\*)([a-zA-Z0-9\s]+)</string>
+			<string>^\s*\*([a-zA-Z0-9\s]+)(?=\,)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.star-keyword.abaqus</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.control.step.abaqus</string>
+					<string>keyword.control.keyword-general.abaqus</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -119,10 +118,25 @@
 				</dict>
 			</array>
 		</dict>
+		<key>keyword-no-option</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.keyword-no-option.abaqus</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*\*([a-zA-Z0-9\s]+)(?!\,)</string>
+			<key>name</key>
+			<string>entity.name.section.keyword-line.abaqus</string>
+		</dict>
 		<key>star</key>
 		<dict>
 			<key>match</key>
-			<string>^\n*\*(?!\*)</string>
+			<string>^\s*\*(?!\*)</string>
 			<key>name</key>
 			<string>punctuation.definition.star-keyword.abaqus</string>
 		</dict>

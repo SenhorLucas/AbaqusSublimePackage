@@ -11,28 +11,36 @@ patterns:
 - include: '#comment'
 - include: '#error' 
 - include: '#keyword-general'
+- include: '#keyword-no-option'
+
+
 - include: '#star'
 
 repository:
 
   comment:
     name: comment.line.double-star.abaqus
-    match: \*\*.*
+    match: ^(\s)*\*\*.*\n
 
   star:
     name: punctuation.definition.star-keyword.abaqus
-    match: ^\n*\*(?!\*)
+    match: ^\s*\*(?!\*)
 
   comma:
     name: punctuation.separator.abaqus
     match: \,
 
+  keyword-no-option:
+    name: entity.name.section.keyword-line.abaqus
+    match: ^\s*\*([a-zA-Z0-9\s]+)(?!\,)
+    captures:
+      '1': {name: keyword.control.keyword-no-option.abaqus}
+
   keyword-general:
     name: entity.name.section.keyword-line.abaqus
-    begin: ^\n*(\*)([a-zA-Z0-9\s]+)
+    begin: ^\s*\*([a-zA-Z0-9\s]+)(?=\,)
     beginCaptures:
-      '1': {name: punctuation.definition.star-keyword.abaqus}
-      '2': {name: keyword.control.step.abaqus}
+      '1': {name: keyword.control.keyword-general.abaqus}
     end: \n
     
     patterns:
