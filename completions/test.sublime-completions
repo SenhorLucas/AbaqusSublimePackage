@@ -1,0 +1,11 @@
+{
+	"scope": "text.abaqus", 
+    "completions":
+    [
+        { "trigger": "AMPLITUDE", "contents": "AMPLITUDE=$0"},
+        
+        "ninja",
+        "robot",
+        "pizza"
+    ]
+}

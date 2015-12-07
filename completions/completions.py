@@ -31,19 +31,8 @@ class DictionaryAutoComplete(sublime_plugin.EventListener):
     # This will return all words found in the dictionary.
     def get_autocomplete_list(self, word):
         autocomplete_list = []
-        # filter relevant items:
         for w in self.word_list:
-            try:
-                if word.lower() in w.lower():
-                    if len(word) > 0 and word[0].isupper():
-                        W = w.title()
-                        autocomplete_list.append((W, W))
-                    else:
-                        autocomplete_list.append((w, w))
-            except UnicodeDecodeError:
-                print(w)
-                # autocomplete_list.append((w, w))
-                continue
+            autocomplete_list.append((w, w))
         return autocomplete_list
 
     def should_trigger(self, scope):
