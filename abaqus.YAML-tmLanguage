@@ -52,7 +52,7 @@ repository:
     match: ([\.a-zA-Z0-9\s_\-]+)(=)([\.a-zA-Z0-9 _\-]+)
     captures:
       '1': {name: entity.name.function.key-general.abaqus}
-      '2': {name: punctuation.definition.equal.abaqus}
+      '2': {name: punctuation.definition.assign.abaqus}
       '3': {name: string.unquoted.value-general.abaqus}
 
   key-modifier:

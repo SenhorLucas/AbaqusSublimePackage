@@ -77,7 +77,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.equal.abaqus</string>
+					<string>punctuation.definition.assign.abaqus</string>
 				</dict>
 				<key>3</key>
 				<dict>
