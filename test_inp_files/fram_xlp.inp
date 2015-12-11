@@ -6,6 +6,7 @@ SI units (kg, m, s, N)
 **
 ** Model definition
 **
+** an imprevi
 *NODE, NSET=NALL
 101, 0.,  0.,    0.
 102, 1.,  0.,    0.
@@ -26,7 +27,7 @@ SI units (kg, m, s, N)
 ** diameter = 5mm --> area = 1.963E-5 m^2
 1.963E-5,
 *MATERIAL, NAME=STEEL
-*ELASTIC,
+*ELASTIC
 200.E9, 0.3
 *DENSITY
 7800.,
@@ -45,7 +46,9 @@ SI units (kg, m, s, N)
 103, 2
 *CLOAD
 102, 2, -10.E3
-*OUTPUT, FIELD, VARIABLE=PRESELECT
+*OUTPUT,
+FIELD,
+VARIABLE=PRESELECT
 *OUTPUT, HISTORY, VARIABLE=PRESELECT, FREQUENCY=1
 *NODE OUTPUT, NSET=CENTER
 U,

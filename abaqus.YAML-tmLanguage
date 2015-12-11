@@ -3,15 +3,15 @@
 # The order matters
 ---
 name: Abaqus
-scopeName: text.abaqus 
+scopeName: source.abaqus 
 fileTypes: [inp, inc, incl]
 uuid: 24f1bc35-ba9c-457b-8f26-db63c6e4bc42
 
 patterns:
 - include: '#comment'
-- include: '#error' 
+- include: '#error'
 - include: '#keyword-general'
-- include: '#keyword-no-option'
+# - include: '#keyword-no-option'
 
 
 - include: '#star'
@@ -23,25 +23,19 @@ repository:
     match: ^(\s)*\*\*.*\n
 
   star:
-    name: punctuation.definition.star-keyword.abaqus
+    name: punctuation.definition.keyword.abaqus
     match: ^\s*\*(?!\*)
 
   comma:
     name: punctuation.separator.abaqus
     match: \,
 
-  keyword-no-option:
-    name: entity.name.section.keyword-line.abaqus
-    match: ^\s*\*([a-zA-Z0-9\s]+)(?!\,)
-    captures:
-      '1': {name: keyword.control.keyword-no-option.abaqus}
-
   keyword-general:
     name: entity.name.section.keyword-line.abaqus
-    begin: ^\s*\*([a-zA-Z0-9\s]+)(?=\,)
+    begin: ^\s*\*([a-zA-Z0-9\s]+)
     beginCaptures:
       '1': {name: keyword.control.keyword-general.abaqus}
-    end: \n
+    end: (?<!\,)(\n)
     
     patterns:
     - include: '#key-value-pair'
@@ -56,7 +50,7 @@ repository:
       '3': {name: string.unquoted.value-general.abaqus}
 
   key-modifier:
-    match: (?<=\,)([\.a-zA-Z0-9\s_\-]+)
+    match: (?<=\,)([\.a-zA-Z0-9\s_\-]+)(?=\n|\,)
     name: entity.name.function.key-general.abaqus
 
   error:
