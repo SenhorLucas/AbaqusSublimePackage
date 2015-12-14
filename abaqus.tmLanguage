@@ -89,7 +89,7 @@
 		<key>keyword-general</key>
 		<dict>
 			<key>begin</key>
-			<string>^\s*\*([a-zA-Z0-9\s]+)</string>
+			<string>\s*\*([a-zA-Z0-9\s]+)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -99,7 +99,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(?&lt;!\,)(\s*\n)</string>
+			<string>([^,]\n)|(?&lt;!\,)$</string>
 			<key>name</key>
 			<string>entity.name.section.keyword-line.abaqus</string>
 			<key>patterns</key>

@@ -32,10 +32,10 @@ repository:
 
   keyword-general:
     name: entity.name.section.keyword-line.abaqus
-    begin: ^\s*\*([a-zA-Z0-9\s]+)
+    begin: \s*\*([a-zA-Z0-9\s]+)
     beginCaptures:
       '1': {name: keyword.control.keyword-general.abaqus}
-    end: (?<!\,)(\n)
+    end: ([^,]\n)|(?<!\,)$
     
     patterns:
     - include: '#key-value-pair'
