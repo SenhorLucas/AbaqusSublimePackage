@@ -22,6 +22,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#keyword-alone</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#keyword-general</string>
 		</dict>
 		<dict>
@@ -57,7 +61,7 @@
 		<key>key-modifier</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=\,)([\.a-zA-Z0-9\s_\-]+)(?=\n|\,)</string>
+			<string>\,\s*\n?\s*([\.a-zA-Z0-9\s_\-]+)($|,)</string>
 			<key>name</key>
 			<string>entity.name.function.key-general.abaqus</string>
 		</dict>
@@ -86,6 +90,21 @@
 			<key>name</key>
 			<string>entity.name.section.key-value-pair.abaqus</string>
 		</dict>
+		<key>keyword-alone</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.keyword-general.abaqus</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\s*\*([a-zA-Z0-9\s]+)$</string>
+			<key>name</key>
+			<string>punctuation.separator.abaqus</string>
+		</dict>
 		<key>keyword-general</key>
 		<dict>
 			<key>begin</key>
@@ -99,7 +118,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>([^,]\n)|(?&lt;!\,)$</string>
+			<string>(?&lt;!,) *\n</string>
 			<key>name</key>
 			<string>entity.name.section.keyword-line.abaqus</string>
 			<key>patterns</key>

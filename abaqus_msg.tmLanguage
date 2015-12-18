@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>msg</string>
+	</array>
+	<key>name</key>
+	<string>AbaqusMsg</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.abaqus_msg</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>S T E P *([0-9]+) *S T A T I C   A N A L Y S I S</string>
+			<key>name</key>
+			<string>keyword.other.step.abaqus_msg</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.abaqus_msg</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.abaqus_msg</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>INCREMENT *([0-9]+) *STARTS\. ATTEMPT NUMBER *([0-9]+)\, TIME INCREMENT.*</string>
+			<key>name</key>
+			<string>string.unquoted.attempt.abaqus_msg</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>CHECK POINT *START OF SOLVER</string>
+			<key>name</key>
+			<string>string.quoted.start_of_solver.abaqus_msg</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>CHECK POINT *END OF SOLVER</string>
+			<key>name</key>
+			<string>string.quoted.end_of_solver.abaqus_msg</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>markup.bold.abaqus_msg</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION *([0-9]+)</string>
+			<key>name</key>
+			<string>keyword.control.iteration.abaqus_msg</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.illegal.abaqus_msg</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>FORCE\s*EQUILIBRIUM (NOT)? ACHIEVED WITHIN TOLERANCE\.</string>
+			<key>name</key>
+			<string>string.unquoted.abaqus_msg</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.illegal.abaqus_msg</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>MOMENT\s*EQUILIBRIUM (NOT)? ACHIEVED WITHIN TOLERANCE\.</string>
+			<key>name</key>
+			<string>string.unquoted.abaqus_msg</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>THE MOMENT\s*EQUILIBRIUM EQUATIONS HAVE CONVERGED</string>
+			<key>name</key>
+			<string>support.constant.abaqus_msg</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>THE FORCE\s*EQUILIBRIUM EQUATIONS HAVE CONVERGED</string>
+			<key>name</key>
+			<string>support.constant.abaqus_msg</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>THE MOMENT\s*EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT</string>
+			<key>name</key>
+			<string>support.constant.abaqus_msg</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>THE FORCE\s*EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT</string>
+			<key>name</key>
+			<string>support.constant.abaqus_msg</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.abaqus_msg</string>
+	<key>uuid</key>
+	<string>24f1bc35-ba9c-457b-8f26-db63c6e4bc42</string>
+</dict>
+</plist>

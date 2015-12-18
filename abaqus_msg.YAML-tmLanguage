@@ -1,0 +1,54 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+# name list: https://manual.macromates.com/en/language_grammars
+# The order matters
+---
+name: AbaqusMsg
+scopeName: text.abaqus_msg
+fileTypes: [msg]
+uuid: 24f1bc35-ba9c-457b-8f26-db63c6e4bc42
+
+patterns:
+- name: keyword.other.step.abaqus_msg
+  match: S T E P *([0-9]+) *S T A T I C   A N A L Y S I S
+  captures:
+    '1': {name: constant.numeric.abaqus_msg}
+
+- name: string.unquoted.attempt.abaqus_msg
+  match: INCREMENT *([0-9]+) *STARTS\. ATTEMPT NUMBER *([0-9]+)\, TIME INCREMENT.*
+  captures:
+    '1': {name: constant.numeric.abaqus_msg}
+    '2': {name: constant.numeric.abaqus_msg}
+
+- name: string.quoted.start_of_solver.abaqus_msg
+  match: CHECK POINT *START OF SOLVER
+
+- name: string.quoted.end_of_solver.abaqus_msg
+  match: CHECK POINT *END OF SOLVER
+
+- name: keyword.control.iteration.abaqus_msg
+  match: CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION *([0-9]+)
+  captures:
+    '1': {name: markup.bold.abaqus_msg}
+
+- name: string.unquoted.abaqus_msg
+  match: FORCE\s*EQUILIBRIUM (NOT)? ACHIEVED WITHIN TOLERANCE\.
+  captures:
+    '1': {name: invalid.illegal.abaqus_msg}
+
+- name: string.unquoted.abaqus_msg
+  match: MOMENT\s*EQUILIBRIUM (NOT)? ACHIEVED WITHIN TOLERANCE\.
+  captures:
+    '1': {name: invalid.illegal.abaqus_msg}
+
+- name: support.constant.abaqus_msg
+  match: THE MOMENT\s*EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+- name: support.constant.abaqus_msg
+  match: THE FORCE\s*EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+- name: support.constant.abaqus_msg
+  match: THE MOMENT\s*EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
+
+- name: support.constant.abaqus_msg
+  match: THE FORCE\s*EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
+...
