@@ -11,16 +11,13 @@ patterns:
 - include: '#comment'
 - include: '#error'
 - include: '#keyword'
-
-# - include: '#star'
+- include: '#comma'
 
 repository:
 
   comment:
     name: comment.line.double-star.abaqus
     match: ^(\s)*\*\*.*\n
-
-
 
   keyword:
     name: entity.name.section.keyword-lines.abaqus
@@ -36,7 +33,6 @@ repository:
     - include: '#modifiers'
   
   modifiers:
-    # name: entity.name.function.abaqus 
     name: entity.name.section.modifier.abaqus
     begin: \,
     end: \b(?= *\,| *$)
@@ -47,34 +43,17 @@ repository:
 
   key-value-pair:
     match: ([\w\-\.]+)(=?)([\w\-\. ]*)
-    # match: ([a-zA-Z0-9_\.\-\s]+)(=?)([a-zA-Z0-9_\.\-\s]*)
     captures:
       '1': {name: entity.name.function.key.abaqus}
       '2': {name: punctuation.definition.assign.abaqus}
       '3': {name: string.unquoted.value-general.abaqus}
-
-  # key-alone:
-  #   name: entity.name.function.key-alone.abaqus
-  #   match: ([a-zA-Z0-9\._\-\s]+)
 
   error:
     comment: ERROR space between star and keyword
     name: invalid.illegal.abaqus
     match: \*\s+.*
 
-
-  # star:
-  #   name: punctuation.definition.keyword.abaqus
-  #   match: ^\s*\*(?!\*)
-
-  # comma:
-  #   name: punctuation.separator.abaqus
-  #   match: \,
-
-  # keyword-alone:
-  #   name: entity.name.section.keyword-alone.abaqus
-  #   match: ^\s*(\*)([a-zA-Z0-9\s]+)$
-  #   captures:
-  #     '1': {name: keyword.operator.abaqus}
-  #     '2': {name: keyword.control.abaqus}
+  comma:
+    name: punctuation.separator.sequence.data-line.abaqus
+    match: \,
 ...

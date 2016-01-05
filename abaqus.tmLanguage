@@ -24,9 +24,20 @@
 			<key>include</key>
 			<string>#keyword</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#comma</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>comma</key>
+		<dict>
+			<key>match</key>
+			<string>\,</string>
+			<key>name</key>
+			<string>punctuation.separator.sequence.data-line.abaqus</string>
+		</dict>
 		<key>comment</key>
 		<dict>
 			<key>match</key>
