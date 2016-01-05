@@ -22,26 +22,11 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#keyword-alone</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#keyword-general</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#star</string>
+			<string>#keyword</string>
 		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>comma</key>
-		<dict>
-			<key>match</key>
-			<string>\,</string>
-			<key>name</key>
-			<string>punctuation.separator.abaqus</string>
-		</dict>
 		<key>comment</key>
 		<dict>
 			<key>match</key>
@@ -54,16 +39,9 @@
 			<key>comment</key>
 			<string>ERROR space between star and keyword</string>
 			<key>match</key>
-			<string>(^| \s)\*\s+.*</string>
+			<string>\*\s+.*</string>
 			<key>name</key>
 			<string>invalid.illegal.abaqus</string>
-		</dict>
-		<key>key-modifier</key>
-		<dict>
-			<key>match</key>
-			<string>\,\s*\n?\s*([\.a-zA-Z0-9\s_\-]+)($|,)</string>
-			<key>name</key>
-			<string>entity.name.function.key-general.abaqus</string>
 		</dict>
 		<key>key-value-pair</key>
 		<dict>
@@ -72,7 +50,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.function.key-general.abaqus</string>
+					<string>entity.name.function.key.abaqus</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -86,59 +64,52 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([\.a-zA-Z0-9\s_\-]+)(=)([\.a-zA-Z0-9 _\-]+)</string>
-			<key>name</key>
-			<string>entity.name.section.key-value-pair.abaqus</string>
+			<string>([\w\-\.]+)(=?)([\w\-\. ]*)</string>
 		</dict>
-		<key>keyword-alone</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.control.keyword-general.abaqus</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\s*\*([a-zA-Z0-9\s]+)$</string>
-			<key>name</key>
-			<string>punctuation.separator.abaqus</string>
-		</dict>
-		<key>keyword-general</key>
+		<key>keyword</key>
 		<dict>
 			<key>begin</key>
-			<string>\s*\*([a-zA-Z0-9\s]+)</string>
+			<string>^\s*(\*)([a-zA-Z0-9\s]+)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.keyword-general.abaqus</string>
+					<string>keyword.operator.abaqus</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.abaqus</string>
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(?&lt;!,) *\n</string>
+			<string>(?&lt;!\,|\, |\,  |\,   |\,    |\,     |\,      |\,       |\,        |\,         |\,          |\,           )(\n|$)</string>
 			<key>name</key>
-			<string>entity.name.section.keyword-line.abaqus</string>
+			<string>entity.name.section.keyword-lines.abaqus</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#modifiers</string>
+				</dict>
+			</array>
+		</dict>
+		<key>modifiers</key>
+		<dict>
+			<key>begin</key>
+			<string>\,</string>
+			<key>end</key>
+			<string>\b(?= *\,| *$)</string>
+			<key>name</key>
+			<string>entity.name.section.modifier.abaqus</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
 					<string>#key-value-pair</string>
 				</dict>
-				<dict>
-					<key>include</key>
-					<string>#key-modifier</string>
-				</dict>
 			</array>
-		</dict>
-		<key>star</key>
-		<dict>
-			<key>match</key>
-			<string>^\s*\*(?!\*)</string>
-			<key>name</key>
-			<string>punctuation.definition.keyword.abaqus</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>

@@ -2,7 +2,9 @@
 Two-dimensional overhead hoist frame
 SI units (kg, m, s, N)
 1-axis horizontal, 2-axis vertical
-*PREPRINT, ECHO=YES, MODEL=YES, HISTORY=YES
+*PREPRINT,
+ECHO=YES, wef , wef ,  wef ,  
+MODEL=YES, HISTORY=YES, asc
 **
 ** Model definition
 **
@@ -23,7 +25,8 @@ SI units (kg, m, s, N)
 15, 102, 105
 16, 103, 105
 17, 104, 105
-*SOLID SECTION, ELSET=FRAME, MATERIAL=STEEL
+*SOLID SECTION,
+ELSET=FRAME, MATERIAL=STEEL
 ** diameter = 5mm --> area = 1.963E-5 m^2
 1.963E-5,
 *MATERIAL, NAME=STEEL
@@ -34,7 +37,7 @@ SI units (kg, m, s, N)
 **
 ** History data
 **
-*STEP, AM, HALLELUYA, NAME=Pretension, INC=100, NLGEOM=NO
+*STEP, AM, HALLELUYA, NAME=Prete nsion, INC=100, NLGEOM=NO 
 10kN central load, suddenly applied
 *CLOAD
 *DYNAMIC, EXPLICIT
@@ -46,11 +49,10 @@ SI units (kg, m, s, N)
 103, 2
 *CLOAD
 102, 2, -10.E3
+*OUTPUT, FIELD,
+VARIABLE=PRESELECT, hej, hej
 *OUTPUT,
-FIELD,
-VARIABLE=PRESELECT
-*OUTPUT, HISTORY,
-VARIABLE=PRESELECT, FREQUENCY=1
+HISTORY, VARIABLE=PRESELECT, FREQUENCY=1
 *NODE OUTPUT, NSET=CENTER
 U,
 *END STEP
