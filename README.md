@@ -10,8 +10,8 @@ Sometimes comments are just on the way, especially those created by some pre-pro
 ![Alt Text](https://raw.githubusercontent.com/SenhorLucas/AbaqusSublimePackage/master/images/remove_all.gif)
 
 
-## Please, donate!
+## Donations!
 
-Please, support this project by making a donation. You can download and use everything for free but this does not mean that tips is not expected.
+If you think I deserve a beer for this project, your donation will be appreciated :wink:
 
-![Alt Text](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GGQCVPM29KL9Q)
+[![Donate](https://www.paypalobjects.com/en_US/SE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GGQCVPM29KL9Q)
