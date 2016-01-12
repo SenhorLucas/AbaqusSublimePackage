@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+*BOUNDARY, TYPE=${1:DISPLACEMENT}
+${2:set_name}, ${3:dof_from}, ${4:dof_to}, ${5:inital_displacement}
+]]></content>
+	<tabTrigger>BOUNDARY</tabTrigger>
+	<scope>source.abaqus</scope>
+	<description>DISPLACEMENT BOUNDARY Keyword</description>
+</snippet>

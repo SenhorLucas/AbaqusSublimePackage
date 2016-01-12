@@ -18,7 +18,15 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#error-long-line</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#error</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#keyword-specific</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -43,7 +51,375 @@
 			<key>match</key>
 			<string>^(\s)*\*\*.*\n</string>
 			<key>name</key>
-			<string>comment.line.double-star.abaqus</string>
+			<string>comment.line.abaqus</string>
+		</dict>
+		<key>contact_pair</key>
+		<dict>
+			<key>begin</key>
+			<string>(?i)^\s*(\*)(CONTACT PAIR)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.abaqus</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.abaqus</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?&lt;!\,|\, |\,  |\,   |\,    |\,     |\,      |\,       |\,        |\,         |\,          |\,           )(\n|$)</string>
+			<key>name</key>
+			<string>entity.name.section.keyword.contact-pair.abaqus</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>\,</string>
+					<key>end</key>
+					<string>\b(?= *\,| *$)</string>
+					<key>name</key>
+					<string>entity.name.section.modifier.abaqus</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.type.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>constant.character.contact-pair.value.type.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(TYPE)(=)([\w\-\. ]*)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.interaction.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>string.unquoted.contact-pair.value.interaction.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(INTERACTION)(=)([\w\-\. ]*)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.adjust.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>constant.character.contact-pair.value.adjust.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(ADJUST)(=)([a-zA-Z\-\. ]+)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.adjust.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.contact-pair.value.adjust.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(ADJUST)(=)([0-9\.]+)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.small-sliding.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(SMALL SLIDING)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.extension-zone.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.contact-pair.value.extension-zone.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(EXTENSION ZONE)(=)([\w\-\. ]*)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.geometric-correction.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>string.unquoted.contact-pair.value.geometric-correction.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(GEOMETRIC CORRECTION)(=)([\w\-\. ]*)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.hcrit.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.contact-pair.value.hcrit.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(HCRIT)(=)([\w\-\. ]*)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.midface-nodes.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>constant.character.contact-pair.value.midface-nodes.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(MIDFACE NODES)(=)([\w\-\. ]*)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.minimum-distance.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>constant.character.contact-pair.value.minimum-distance.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(MINIMUM DISTANCE)(=)([\w\-\. ]*)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.no-thickness.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(NO THICKNES)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.smooth.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.contact-pair.value.smooth.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(SMOOTH)(=)([\w\-\. ]*)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.sliding-transition.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>constant.character.contact-pair.value.sliding-transition.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(SLIDING TRANSITION)(=)([\w\-\. ]*)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.suplementary-constrains.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>constant.character.contact-pair.value.suplementary-constrains.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(SUPPLEMENTARY CONSTRAINTS)(=)([\w\-\. ]*)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.tied.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>string.unquoted.contact-pair.value.tied.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(TIED)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.contact-pair.key.tracking.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>constant.character.contact-pair.value.tracking.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?i)(TRACKING)(=)([\w\-\. ]*)</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 		</dict>
 		<key>error</key>
 		<dict>
@@ -54,28 +430,12 @@
 			<key>name</key>
 			<string>invalid.illegal.abaqus</string>
 		</dict>
-		<key>key-value-pair</key>
+		<key>error-long-line</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.key.abaqus</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.assign.abaqus</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>string.unquoted.value-general.abaqus</string>
-				</dict>
-			</dict>
 			<key>match</key>
-			<string>([\w\-\.]+)(=?)([\w\-\. ]*)</string>
+			<string>.{256}</string>
+			<key>name</key>
+			<string>invalid.illegal.abaqus</string>
 		</dict>
 		<key>keyword</key>
 		<dict>
@@ -97,28 +457,49 @@
 			<key>end</key>
 			<string>(?&lt;!\,|\, |\,  |\,   |\,    |\,     |\,      |\,       |\,        |\,         |\,          |\,           )(\n|$)</string>
 			<key>name</key>
-			<string>entity.name.section.keyword-lines.abaqus</string>
+			<string>entity.name.section.keyword.all.abaqus</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>#modifiers</string>
+					<key>begin</key>
+					<string>\,</string>
+					<key>end</key>
+					<string>\b(?= *\,| *$)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.key.general.abaqus</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.assign.abaqus</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>string.unquoted.value.general.abaqus</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>([\w\-\. ]+)(=?)([\w\-\.]*)</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
-		<key>modifiers</key>
+		<key>keyword-specific</key>
 		<dict>
-			<key>begin</key>
-			<string>\,</string>
-			<key>end</key>
-			<string>\b(?= *\,| *$)</string>
-			<key>name</key>
-			<string>entity.name.section.modifier.abaqus</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#key-value-pair</string>
+					<string>#contact_pair</string>
 				</dict>
 			</array>
 		</dict>

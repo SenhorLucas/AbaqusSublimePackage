@@ -9,18 +9,21 @@ uuid: 24f1bc35-ba9c-457b-8f26-db63c6e4bc42
 
 patterns:
 - include: '#comment'
+- include: '#error-long-line'
 - include: '#error'
+- include: '#keyword-specific'
 - include: '#keyword'
 - include: '#comma'
+
 
 repository:
 
   comment:
-    name: comment.line.double-star.abaqus
+    name: comment.line.abaqus
     match: ^(\s)*\*\*.*\n
 
   keyword:
-    name: entity.name.section.keyword-lines.abaqus
+    name: entity.name.section.keyword.all.abaqus
     begin: ^\s*(\*)([a-zA-Z0-9\s]+)
     beginCaptures:
       '1': {name: keyword.operator.abaqus}
@@ -30,30 +33,136 @@ repository:
     # end: (?<!\,s*)($) 
     
     patterns:
-    - include: '#modifiers'
-  
-  modifiers:
-    name: entity.name.section.modifier.abaqus
-    begin: \,
-    end: \b(?= *\,| *$)
+    - begin: \,
+      end: \b(?= *\,| *$)
 
-    patterns:
-    - include: '#key-value-pair'
-    # - include: '#key-alone'
-
-  key-value-pair:
-    match: ([\w\-\.]+)(=?)([\w\-\. ]*)
-    captures:
-      '1': {name: entity.name.function.key.abaqus}
-      '2': {name: punctuation.definition.assign.abaqus}
-      '3': {name: string.unquoted.value-general.abaqus}
+      patterns:
+      - match: ([\w\-\. ]+)(=?)([\w\-\.]*)
+        captures:
+          '1': {name: entity.name.function.key.general.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: string.unquoted.value.general.abaqus}
 
   error:
     comment: ERROR space between star and keyword
     name: invalid.illegal.abaqus
     match: \*\s+.*
 
+  error-long-line:
+    name: invalid.illegal.abaqus 
+    match: .{256}
+
   comma:
     name: punctuation.separator.sequence.data-line.abaqus
     match: \,
-...
+
+  keyword-specific:
+    patterns:
+    - include: '#contact_pair'
+
+
+  contact_pair:
+    name: entity.name.section.keyword.contact-pair.abaqus
+    begin: (?i)^\s*(\*)(CONTACT PAIR)
+    beginCaptures:
+      '1': {name: keyword.operator.abaqus}
+      '2': {name: keyword.control.abaqus}
+    end: (?<!\,|\, |\,  |\,   |\,    |\,     |\,      |\,       |\,        |\,         |\,          |\,           )(\n|$)
+
+    patterns:
+    - name: entity.name.section.modifier.abaqus
+      begin: \,
+      end: \b(?= *\,| *$)
+
+      patterns:
+      - match: (?i)(TYPE)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.type.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: constant.character.contact-pair.value.type.abaqus}
+
+      - match: (?i)(INTERACTION)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.interaction.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: string.unquoted.contact-pair.value.interaction.abaqus}
+
+      - match: (?i)(ADJUST)(=)([a-zA-Z\-\. ]+)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.adjust.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: constant.character.contact-pair.value.adjust.abaqus}
+
+      - match: (?i)(ADJUST)(=)([0-9\.]+)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.adjust.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: variable.parameter.contact-pair.value.adjust.abaqus}
+
+      - match: (?i)(SMALL SLIDING)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.small-sliding.abaqus}
+
+      - match: (?i)(EXTENSION ZONE)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.extension-zone.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: variable.parameter.contact-pair.value.extension-zone.abaqus}
+
+      - match: (?i)(GEOMETRIC CORRECTION)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.geometric-correction.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: string.unquoted.contact-pair.value.geometric-correction.abaqus}
+
+      - match: (?i)(HCRIT)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.hcrit.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: variable.parameter.contact-pair.value.hcrit.abaqus}
+
+      - match: (?i)(MIDFACE NODES)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.midface-nodes.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: constant.character.contact-pair.value.midface-nodes.abaqus}
+
+      - match: (?i)(MINIMUM DISTANCE)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.minimum-distance.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: constant.character.contact-pair.value.minimum-distance.abaqus}
+
+      - match: (?i)(NO THICKNES)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.no-thickness.abaqus}
+
+      - match: (?i)(SMOOTH)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.smooth.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: variable.parameter.contact-pair.value.smooth.abaqus}
+
+      - match: (?i)(SLIDING TRANSITION)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.sliding-transition.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: constant.character.contact-pair.value.sliding-transition.abaqus}
+
+      - match: (?i)(SUPPLEMENTARY CONSTRAINTS)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.suplementary-constrains.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: constant.character.contact-pair.value.suplementary-constrains.abaqus}
+
+      - match: (?i)(TIED)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.tied.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: string.unquoted.contact-pair.value.tied.abaqus}
+
+      - match: (?i)(TRACKING)(=)([\w\-\. ]*)
+        captures:
+          '1': {name: entity.name.function.contact-pair.key.tracking.abaqus}
+          '2': {name: punctuation.definition.assign.abaqus}
+          '3': {name: constant.character.contact-pair.value.tracking.abaqus}

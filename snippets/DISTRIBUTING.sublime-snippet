@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+*COUPLING, CONSTRAINT NAME=${1:give_me_a_name}, REF NODE=${2:node_num_or_set}, SURFACE=${3:surf_name_coupling_nodes}
+*DISTRIBUTING, WEIGHTING METHOD=${4:UNIFORM}
+${8:dof_from}, ${9:dof_to}
+]]></content>
+	<tabTrigger>DISTRIBUTING COUPLING</tabTrigger>
+	<scope>source.abaqus</scope>
+	<description>DISTRIBUTING COUPLING Keyword</description>
+</snippet>

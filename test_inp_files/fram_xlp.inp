@@ -9,6 +9,9 @@ MODEL=YES, HISTORY=YES, asc
 ** Model definition
 **
 ** an imprevi
+*CONTACT PAIR, INTERACTION=interaction, TYPE=SURFACE TO SURFACE, ADJUST=YES, SMALL SLIDING
+slave_surface, master_surface
+f
 *NODE, NSET=NALL
 101, 0.,  0.,    0.
 102, 1.,  0.,    0.

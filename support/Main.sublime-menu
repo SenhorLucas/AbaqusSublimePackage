@@ -1,0 +1,19 @@
+[
+{
+    "id": "tools",
+    "children":
+        [
+            {
+                
+                "caption": "Abaqus",
+                "id": "abaqus",
+                "children":
+                [
+                    { "caption": "Remove Empty Comments", "command": "remove_empty_comments" },
+                    { "caption": "Remove All Comments", "command": "remove_all_comments" }
+                ]
+                   
+            }
+        ]
+}
+]   

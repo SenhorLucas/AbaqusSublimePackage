@@ -1,11 +1,10 @@
 {
-	"scope": "text.abaqus", 
+    "scope": "source.abaqus", 
     "completions":
     [
-        { "trigger": "AMPLITUDE", "contents": "AMPLITUDE=$0"},
-        
-        "ninja",
-        "robot",
-        "pizza"
+        {"trigger": "COMPLETIONTEST", 
+        "contents": "*TEST, COMPTEST=$1"},
+        "give_me_a_WOMB",
+        "give_me_a_name",
     ]
 }

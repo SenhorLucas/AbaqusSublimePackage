@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+CONTACT PAIR, INTERACTION=${1:interaction}, TYPE=${2:SURFACE TO SURFACE}, ADJUST=${3:YES}, ${4:SMALL SLIDING}
+${5:slave_surface}, ${6:master_surface}
+]]></content>
+	<tabTrigger>CONTACT PAIR</tabTrigger>
+	<scope>source.abaqus</scope>
+	<description>CONTACT PAIR Keyword</description>
+</snippet>

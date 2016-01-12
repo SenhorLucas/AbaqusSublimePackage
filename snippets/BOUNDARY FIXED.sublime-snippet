@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+*BOUNDARY, ${1:FIXED}
+${2:node_set_label}, ${3:PINNED}
+]]></content>
+	<tabTrigger>BOUNDARY</tabTrigger>
+	<scope>source.abaqus</scope>
+	<description>DISPLACEMENT BOUNDARY Keyword</description>
+</snippet>

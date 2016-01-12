@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+*CLOAD
+${1:node_set_label}, ${2:dof}, ${3:magnitude}
+]]></content>
+	<tabTrigger>CLOAD</tabTrigger>
+	<scope>source.abaqus</scope>
+	<description>CLOAD Keyword</description>
+</snippet>

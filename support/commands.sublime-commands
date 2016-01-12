@@ -1,0 +1,4 @@
+[
+    { "caption": "Abaqus: Remove All Comments", "command": "remove_all_comments" },
+    { "caption": "Abaqus: Remove Empty Comments", "command": "remove_empty_comments" },
+]
