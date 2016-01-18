@@ -25,8 +25,4 @@ Once you install Package Control, restart Sublime Text, bring up the Command Pal
 
 
 
-## Donations!
 
-If you think I deserve a beer for this project, your donation will be appreciated :wink:
-
-[![Donate](https://www.paypalobjects.com/en_US/SE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GGQCVPM29KL9Q)
