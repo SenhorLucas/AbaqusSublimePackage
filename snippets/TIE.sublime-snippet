@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+*TIE, NAME=${1:tie_name}${2:, ADJUST=${3:NO}}${4:, POSITION TOLERANCE=${5:0.1}}
+${6:slave_surf_name}, ${7:master_surf_name}
+]]></content>
+	<tabTrigger>TIE</tabTrigger>
+	<scope>source.abaqus</scope>
+	<description>TIE Keyword</description>
+</snippet>

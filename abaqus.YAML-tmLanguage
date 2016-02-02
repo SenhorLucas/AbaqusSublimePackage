@@ -24,7 +24,7 @@ repository:
 
   keyword:
     name: entity.name.section.keyword.all.abaqus
-    begin: ^\s*(\*)([a-zA-Z0-9\s]+)
+    begin: ^\s*(\*)([a-zA-Z0-9\s\-]+)
     beginCaptures:
       '1': {name: keyword.operator.abaqus}
       '2': {name: keyword.control.abaqus}

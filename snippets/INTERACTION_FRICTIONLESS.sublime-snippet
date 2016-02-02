@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+SURFACE INTERACTION, NAME=${1:no_friction}
+]]></content>
+	<tabTrigger>INTERACTION</tabTrigger>
+	<scope>source.abaqus</scope>
+	<description>INTERACTION NO FRICTION Keyword</description>
+</snippet>

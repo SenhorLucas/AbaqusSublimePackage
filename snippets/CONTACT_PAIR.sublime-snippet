@@ -1,7 +1,7 @@
 <snippet>
 	<content><![CDATA[
-CONTACT PAIR, INTERACTION=${1:interaction}, TYPE=${2:SURFACE TO SURFACE}, ADJUST=${3:YES}, ${4:SMALL SLIDING}
-${5:slave_surface}, ${6:master_surface}
+CONTACT PAIR, INTERACTION=${1:interaction} ${2:, TYPE=${3:SURFACE TO SURFACE}}${4:, ADJUST=${5:YES}} ${6:, SMALL SLIDING}
+${7:slave_surface}, ${8:master_surface}
 ]]></content>
 	<tabTrigger>CONTACT PAIR</tabTrigger>
 	<scope>source.abaqus</scope>

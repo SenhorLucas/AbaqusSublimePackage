@@ -440,7 +440,7 @@
 		<key>keyword</key>
 		<dict>
 			<key>begin</key>
-			<string>^\s*(\*)([a-zA-Z0-9\s]+)</string>
+			<string>^\s*(\*)([a-zA-Z0-9\s\-]+)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>

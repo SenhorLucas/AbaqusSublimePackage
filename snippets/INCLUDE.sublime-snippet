@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+*INCLUDE, INPUT=${1:include_file.inc}
+]]></content>
+	<tabTrigger>INCLUDE</tabTrigger>
+	<scope>source.abaqus</scope>
+	<description>INCLUDE Keyword</description>
+</snippet>
