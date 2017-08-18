@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>name</key><string>Comments</string>
+    <key>name</key><string>Comments for AbaqusSublimePackage by ropeonfire ("https://github.com/ropeonfire")</string>
     <key>scope</key><string>source.abaqus</string>
     <key>settings</key>
     <dict>
