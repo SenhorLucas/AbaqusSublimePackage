@@ -1,5 +1,9 @@
 # Abaqus Sublime Package
 Tool set for faster Abaqus keywords editing with Sublime Text 3
+
+This is a fork of the original work by [SenhorLucas](https://github.com/SenhorLucas/AbaqusSublimePackage). The following changes have been made:
+1. Added a Comment metadata file so that the standard keyboard shortcuts for line comments (Ctl+/) and block comments (Ctl+Shft+/) can be used to automatically comment/uncomment selected lines.
+
 ## Syntax Highlight
 ![syntax_highlight.gif](https://raw.githubusercontent.com/SenhorLucas/AbaqusSublimePackage/master/images/syntax_highlight.gif)
 ## Plugins
